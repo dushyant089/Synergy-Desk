@@ -718,7 +718,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     const response =
                         await fetch(
-                            "http://localhost:8080/api/auth/reset-password?email="
+                            "https://synergy-desk-production.up.railway.app/api/auth/reset-password?email="
                             + encodeURIComponent(email)
                             + "&newPassword="
                             + encodeURIComponent(newPassword),

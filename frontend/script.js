@@ -2,10 +2,10 @@
 // SYNERGY DESK - MAIN JAVASCRIPT
 // ==========================================
 
-const API_URL = "http://localhost:8080/api/auth";
-const USERS_API_URL = "http://localhost:8080/api/users";
-const TASKS_API_URL = "http://localhost:8080/api/tasks";
-const DASHBOARD_API_URL = "http://localhost:8080/api/dashboard/stats";
+const API_URL = "https://synergy-desk-production.up.railway.app/api/auth";
+const USERS_API_URL = "https://synergy-desk-production.up.railway.app/api/users";
+const TASKS_API_URL = "https://synergy-desk-production.up.railway.app/api/tasks";
+const DASHBOARD_API_URL = "https://synergy-desk-production.up.railway.app/api/dashboard/stats";
 
 // ==========================================
 // JWT AUTHENTICATION HELPER
@@ -45,10 +45,10 @@ window.fetch = async function (input, init = {}) {
             : input.url;
 
     const isBackendApi =
-        url.includes("http://localhost:8080/api/");
+        url.includes("https://synergy-desk-production.up.railway.app/api/");
 
     const isAuthApi =
-        url.includes("http://localhost:8080/api/auth/");
+        url.includes("https://synergy-desk-production.up.railway.app/api/auth/");
 
     // Only add JWT to backend APIs
     // Login/Register remain public
@@ -3586,7 +3586,7 @@ if (employeeList) {
 // ==================================================
 
 const ATTENDANCE_API_URL =
-    "http://localhost:8080/api/attendance";
+    "https://synergy-desk-production.up.railway.app/api/attendance";
 
 const attendanceList =
     document.getElementById("attendanceList");
@@ -4981,7 +4981,7 @@ if (attendanceList) {
 // ==================================================
 
 const REPORTS_API_URL =
-    "http://localhost:8080/api/reports/attendance";
+    "https://synergy-desk-production.up.railway.app/api/reports/attendance";
 
 const employeeReportList =
     document.getElementById("employeeReportList");
