@@ -1,0 +1,878 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Synergy Desk - Settings</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h2>Synergy Desk</h2>
+            <span>Employee Management</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <span>👥</span>
+                Employees
+            </a>
+
+            <a href="tasks.html" class="nav-item">
+                <span>📋</span>
+                Tasks
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span>📅</span>
+                Attendance
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item active">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Settings</h1>
+                <p>Manage your Synergy Desk account</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-info">
+                    <strong id="userName">Employee</strong>
+                    <small id="userRole">EMPLOYEE</small>
+                </div>
+
+                <div class="avatar" id="userAvatar">
+                    U
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             SETTINGS GRID
+        ========================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =========================
+                 PROFILE
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>My Profile</h2>
+                        <p>Your account information</p>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-profile">
+
+                    <div class="large-avatar" id="settingsAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-details">
+
+                        <h3 id="profileName">
+                            Employee
+                        </h3>
+
+                        <p id="profileEmail">
+                            employee@example.com
+                        </p>
+
+                        <span
+                            class="role-badge"
+                            id="profileRole">
+                            EMPLOYEE
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ACCOUNT INFORMATION
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Account Information</h2>
+                        <p>Information associated with your account</p>
+                    </div>
+
+                </div>
+
+
+                <div class="settings-form">
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="settingsName"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="settingsEmail"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Role
+                        </label>
+
+                        <input
+                            type="text"
+                            id="settingsRole"
+                            readonly
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CHANGE PASSWORD
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Change Password</h2>
+                        <p>Update your account password</p>
+                    </div>
+
+                </div>
+
+
+                <form id="changePasswordForm"
+                      class="settings-form">
+
+
+                    <div class="form-group">
+
+                        <label for="currentPassword">
+                            Current Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="currentPassword"
+                            placeholder="Enter current password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="newPassword">
+                            New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="newPassword"
+                            placeholder="Enter new password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm New Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Confirm new password"
+                            autocomplete="new-password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+
+                        🔐 Update Password
+
+                    </button>
+
+
+                    <p
+                        id="passwordMessage"
+                        class="settings-message">
+                    </p>
+
+                </form>
+
+            </div>
+
+
+            <!-- =========================
+                 SYSTEM INFORMATION
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>System Information</h2>
+                        <p>Synergy Desk application details</p>
+                    </div>
+
+                </div>
+
+
+                <div class="system-info">
+
+                    <div class="system-row">
+
+                        <span>
+                            Application
+                        </span>
+
+                        <strong>
+                            Synergy Desk
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-row">
+
+                        <span>
+                            Version
+                        </span>
+
+                        <strong>
+                            2.0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-row">
+
+                        <span>
+                            Backend
+                        </span>
+
+                        <strong>
+                            Spring Boot
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-row">
+
+                        <span>
+                            Database
+                        </span>
+
+                        <strong>
+                            MySQL
+                        </strong>
+
+                    </div>
+
+
+                    <div class="system-row">
+
+                        <span>
+                            Authentication
+                        </span>
+
+                        <strong>
+                            JWT
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 SESSION
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Session</h2>
+                        <p>Manage your current session</p>
+                    </div>
+
+                </div>
+
+
+                <div class="session-section">
+
+                    <p>
+                        You are currently logged in to
+                        <strong>Synergy Desk</strong>.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="logout-settings-btn"
+                        id="settingsLogoutBtn">
+
+                        🚪 Logout from this account
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     SETTINGS JAVASCRIPT
+========================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const loggedInUser =
+        localStorage.getItem("loggedInUser");
+
+
+    /*
+     * If user is not logged in,
+     * return to login page.
+     */
+
+    if (!loggedInUser) {
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    let user = null;
+
+
+    try {
+
+        user = JSON.parse(loggedInUser);
+
+    } catch (error) {
+
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userRole");
+
+        window.location.href = "index.html";
+
+        return;
+    }
+
+
+    /* =========================
+       USER DATA
+    ========================== */
+
+    const name =
+        user.name || "Employee";
+
+    const email =
+        user.email || "Not available";
+
+    const role =
+        user.role || "EMPLOYEE";
+
+
+    /* =========================
+       TOP PROFILE
+    ========================== */
+
+    const userName =
+        document.getElementById("userName");
+
+    const userRole =
+        document.getElementById("userRole");
+
+    const userAvatar =
+        document.getElementById("userAvatar");
+
+
+    if (userName) {
+        userName.textContent = name;
+    }
+
+    if (userRole) {
+        userRole.textContent = role;
+    }
+
+    if (userAvatar) {
+        userAvatar.textContent =
+            getInitials(name);
+    }
+
+
+    /* =========================
+       SETTINGS PROFILE
+    ========================== */
+
+    const profileName =
+        document.getElementById("profileName");
+
+    const profileEmail =
+        document.getElementById("profileEmail");
+
+    const profileRole =
+        document.getElementById("profileRole");
+
+    const settingsAvatar =
+        document.getElementById("settingsAvatar");
+
+
+    if (profileName) {
+        profileName.textContent = name;
+    }
+
+    if (profileEmail) {
+        profileEmail.textContent = email;
+    }
+
+    if (profileRole) {
+        profileRole.textContent = role;
+    }
+
+    if (settingsAvatar) {
+        settingsAvatar.textContent =
+            getInitials(name);
+    }
+
+
+    /* =========================
+       ACCOUNT INFORMATION
+    ========================== */
+
+    const settingsName =
+        document.getElementById("settingsName");
+
+    const settingsEmail =
+        document.getElementById("settingsEmail");
+
+    const settingsRole =
+        document.getElementById("settingsRole");
+
+
+    if (settingsName) {
+        settingsName.value = name;
+    }
+
+    if (settingsEmail) {
+        settingsEmail.value = email;
+    }
+
+    if (settingsRole) {
+        settingsRole.value = role;
+    }
+
+
+    /* =========================
+       LOGOUT
+    ========================== */
+
+    function logout() {
+
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("userRole");
+
+        window.location.href = "index.html";
+    }
+
+
+    const logoutBtn =
+        document.getElementById("logoutBtn");
+
+    const settingsLogoutBtn =
+        document.getElementById(
+            "settingsLogoutBtn"
+        );
+
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+    if (settingsLogoutBtn) {
+
+        settingsLogoutBtn.addEventListener(
+            "click",
+            logout
+        );
+
+    }
+
+
+    /* =========================
+       CHANGE PASSWORD
+    ========================== */
+
+    const changePasswordForm =
+        document.getElementById(
+            "changePasswordForm"
+        );
+
+    const passwordMessage =
+        document.getElementById(
+            "passwordMessage"
+        );
+
+
+    if (changePasswordForm) {
+
+        changePasswordForm.addEventListener(
+            "submit",
+            async function (event) {
+
+                event.preventDefault();
+
+
+                const currentPassword =
+                    document.getElementById(
+                        "currentPassword"
+                    ).value.trim();
+
+
+                const newPassword =
+                    document.getElementById(
+                        "newPassword"
+                    ).value.trim();
+
+
+                const confirmPassword =
+                    document.getElementById(
+                        "confirmPassword"
+                    ).value.trim();
+
+
+                if (!currentPassword ||
+                    !newPassword ||
+                    !confirmPassword) {
+
+                    showPasswordMessage(
+                        "Please fill all password fields.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (newPassword.length < 6) {
+
+                    showPasswordMessage(
+                        "New password must contain at least 6 characters.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                if (newPassword !== confirmPassword) {
+
+                    showPasswordMessage(
+                        "New passwords do not match.",
+                        "error"
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Current backend reset-password endpoint
+                 * requires email and newPassword.
+                 *
+                 * This request updates the password.
+                 */
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "http://localhost:8080/api/auth/reset-password?email="
+                            + encodeURIComponent(email)
+                            + "&newPassword="
+                            + encodeURIComponent(newPassword),
+                            {
+                                method: "POST"
+                            }
+                        );
+
+
+                    const result =
+                        await response.text();
+
+
+                    if (!response.ok) {
+
+                        showPasswordMessage(
+                            result ||
+                            "Unable to update password.",
+                            "error"
+                        );
+
+                        return;
+                    }
+
+
+                    showPasswordMessage(
+                        "Password updated successfully. Please login again.",
+                        "success"
+                    );
+
+
+                    document
+                        .getElementById(
+                            "currentPassword"
+                        )
+                        .value = "";
+
+                    document
+                        .getElementById(
+                            "newPassword"
+                        )
+                        .value = "";
+
+                    document
+                        .getElementById(
+                            "confirmPassword"
+                        )
+                        .value = "";
+
+
+                    /*
+                     * Remove existing JWT so that
+                     * user logs in with the new password.
+                     */
+
+                    setTimeout(function () {
+
+                        localStorage.removeItem(
+                            "authToken"
+                        );
+
+                        localStorage.removeItem(
+                            "loggedInUser"
+                        );
+
+                        localStorage.removeItem(
+                            "userRole"
+                        );
+
+                        window.location.href =
+                            "index.html";
+
+                    }, 1500);
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Password update error:",
+                        error
+                    );
+
+
+                    showPasswordMessage(
+                        "Server connection failed.",
+                        "error"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    /* =========================
+       HELPER FUNCTIONS
+    ========================== */
+
+    function getInitials(name) {
+
+        const words =
+            String(name)
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean);
+
+
+        if (words.length === 0) {
+            return "U";
+        }
+
+
+        if (words.length === 1) {
+
+            return words[0]
+                .substring(0, 2)
+                .toUpperCase();
+
+        }
+
+
+        return (
+            words[0].charAt(0) +
+            words[words.length - 1].charAt(0)
+        ).toUpperCase();
+
+    }
+
+
+    function showPasswordMessage(
+        message,
+        type
+    ) {
+
+        if (!passwordMessage) {
+            return;
+        }
+
+
+        passwordMessage.textContent =
+            message;
+
+
+        passwordMessage.className =
+            "settings-message " + type;
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
+```

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports - Synergy Desk</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="reports-page">
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h2>Synergy Desk</h2>
+                <span>Employee Management</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span>🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="employees.html" class="nav-item">
+                    <span>👥</span>
+                    Employees
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    <span>📋</span>
+                    Tasks
+                </a>
+
+                <a href="attendance.html" class="nav-item">
+                    <span>📅</span>
+                    Attendance
+                </a>
+
+                <a href="reports.html" class="nav-item active">
+                    <span>📊</span>
+                    Reports
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="logoutBtn" class="logout-btn">
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Reports & Statistics</h1>
+                    <p>View employee and attendance reports</p>
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar" id="userAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong id="userName">
+                            User
+                        </strong>
+
+                        <span id="userRole">
+                            Employee
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <h2 id="reportTotalEmployees">
+                            0
+                        </h2>
+
+                        <span>
+                            Total Employees
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <h2 id="reportTotalTasks">
+                            0
+                        </h2>
+
+                        <span>
+                            Total Tasks
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <h2 id="reportTotalAttendance">
+                            0
+                        </h2>
+
+                        <span>
+                            Attendance Records
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📈
+                    </div>
+
+                    <div>
+
+                        <h2 id="reportAttendanceRate">
+                            0%
+                        </h2>
+
+                        <span>
+                            Attendance Rate
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ATTENDANCE SUMMARY -->
+            <section class="dashboard-card reports-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Attendance Summary
+                        </h2>
+
+                        <p>
+                            Present and absent attendance overview
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="report-summary-grid">
+
+                    <div class="report-summary-box">
+
+                        <div class="report-summary-icon">
+                            ✅
+                        </div>
+
+                        <div>
+
+                            <h3 id="reportPresent">
+                                0
+                            </h3>
+
+                            <span>
+                                Present
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-summary-box">
+
+                        <div class="report-summary-icon">
+                            ❌
+                        </div>
+
+                        <div>
+
+                            <h3 id="reportAbsent">
+                                0
+                            </h3>
+
+                            <span>
+                                Absent
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-summary-box">
+
+                        <div class="report-summary-icon">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <h3 id="reportPresentPercentage">
+                                0%
+                            </h3>
+
+                            <span>
+                                Present Percentage
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="report-summary-box">
+
+                        <div class="report-summary-icon">
+                            📉
+                        </div>
+
+                        <div>
+
+                            <h3 id="reportAbsentPercentage">
+                                0%
+                            </h3>
+
+                            <span>
+                                Absent Percentage
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- EMPLOYEE ATTENDANCE REPORT -->
+            <section class="dashboard-card reports-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Employee Attendance Report
+                        </h2>
+
+                        <p>
+                            Attendance records by employee
+                        </p>
+
+                    </div>
+
+                    <button
+                        id="refreshReportsBtn"
+                        class="primary-btn">
+
+                        🔄 Refresh
+
+                    </button>
+
+                </div>
+
+
+                <div class="report-controls">
+
+                    <div>
+
+                        <input
+                            type="text"
+                            id="reportSearch"
+                            placeholder="Search employee..."
+                        >
+
+                    </div>
+
+
+                    <div>
+
+                        <select id="reportStatusFilter">
+
+                            <option value="">
+                                All Status
+                            </option>
+
+                            <option value="PRESENT">
+                                Present
+                            </option>
+
+                            <option value="ABSENT">
+                                Absent
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div>
+
+                        <input
+                            type="date"
+                            id="reportDateFilter"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="employeeReportList"
+                    class="employee-report-list">
+
+                    <div class="report-empty">
+                        Loading reports...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TASK SUMMARY -->
+            <section class="dashboard-card reports-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            Task Summary
+                        </h2>
+
+                        <p>
+                            Overview of employee tasks
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="task-report-grid">
+
+                    <div class="task-report-box">
+
+                        <span class="task-report-icon">
+                            📋
+                        </span>
+
+                        <div>
+
+                            <h3 id="reportTasksTotal">
+                                0
+                            </h3>
+
+                            <span>
+                                Total Tasks
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-report-box">
+
+                        <span class="task-report-icon">
+                            ⏳
+                        </span>
+
+                        <div>
+
+                            <h3 id="reportTasksPending">
+                                0
+                            </h3>
+
+                            <span>
+                                Pending
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-report-box">
+
+                        <span class="task-report-icon">
+                            🔄
+                        </span>
+
+                        <div>
+
+                            <h3 id="reportTasksInProgress">
+                                0
+                            </h3>
+
+                            <span>
+                                In Progress
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="task-report-box">
+
+                        <span class="task-report-icon">
+                            ✅
+                        </span>
+
+                        <div>
+
+                            <h3 id="reportTasksCompleted">
+                                0
+                            </h3>
+
+                            <span>
+                                Completed
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

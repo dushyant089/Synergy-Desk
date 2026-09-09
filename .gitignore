@@ -1,0 +1,7 @@
+demo/target/ 
+.env 
+*.env 
+Synergy-Desk-Final.zip 
+dir 
+demo/src/main/resources/application.properties 
+demo/netstat 
