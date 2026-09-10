@@ -22,7 +22,6 @@ public class JwtAuthenticationFilter
 
     public JwtAuthenticationFilter(
             JwtService jwtService) {
-
         this.jwtService = jwtService;
     }
 
@@ -32,6 +31,12 @@ public class JwtAuthenticationFilter
             HttpServletResponse response,
             FilterChain filterChain)
             throws ServletException, IOException {
+
+        // CORS preflight request ko JWT authentication se skip karo
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            filterChain.doFilter(request, response);
+            return;
+        }
 
         String authHeader =
                 request.getHeader("Authorization");
