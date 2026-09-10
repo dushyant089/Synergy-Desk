@@ -39,7 +39,9 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
 
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .cors(cors ->
+                cors.configurationSource(corsConfigurationSource())
+            )
 
             .sessionManagement(session ->
                 session.sessionCreationPolicy(
@@ -49,17 +51,13 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-                // CORS preflight
                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                // Login / Register
                 .requestMatchers("/api/auth/**").permitAll()
 
-                // Admin APIs
                 .requestMatchers("/api/users/**").hasRole("ADMIN")
                 .requestMatchers("/api/reports/**").hasRole("ADMIN")
 
-                // Logged-in users
                 .requestMatchers(
                     "/api/tasks/**",
                     "/api/attendance/**",
@@ -83,7 +81,7 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of(
+        configuration.setAllowedOriginPatterns(List.of(
             "https://synergy-desk.netlify.app",
             "http://localhost:5500",
             "http://127.0.0.1:5500"
@@ -94,15 +92,11 @@ public class SecurityConfig {
             "POST",
             "PUT",
             "DELETE",
+            "PATCH",
             "OPTIONS"
         ));
 
-        configuration.setAllowedHeaders(List.of(
-            "Authorization",
-            "Content-Type",
-            "Accept",
-            "Origin"
-        ));
+        configuration.setAllowedHeaders(List.of("*"));
 
         configuration.setExposedHeaders(List.of(
             "Authorization"
@@ -114,14 +108,13 @@ public class SecurityConfig {
                 new UrlBasedCorsConfigurationSource();
 
         source.registerCorsConfiguration(
-                "/**",
-                configuration
+            "/**",
+            configuration
         );
 
         return source;
     }
 
-    // Global CORS filter
     @Bean
     public CorsFilter corsFilter(
             CorsConfigurationSource corsConfigurationSource) {
