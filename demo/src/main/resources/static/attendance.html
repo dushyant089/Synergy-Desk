@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - Synergy Desk</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="attendance-page">
+
+    <!-- ============================= -->
+    <!-- DASHBOARD WRAPPER -->
+    <!-- ============================= -->
+
+    <div class="dashboard">
+
+        <!-- ============================= -->
+        <!-- SIDEBAR -->
+        <!-- ============================= -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <h2>Synergy Desk</h2>
+                <span>Employee Management</span>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span>🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="employees.html" class="nav-item">
+                    <span>👥</span>
+                    Employees
+                </a>
+
+                <a href="tasks.html" class="nav-item">
+                    <span>📋</span>
+                    Tasks
+                </a>
+
+                <a href="attendance.html" class="nav-item active">
+                    <span>📅</span>
+                    Attendance
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button id="logoutBtn" class="logout-btn">
+                    🚪 Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ============================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ============================= -->
+
+        <main class="main-content">
+
+            <!-- HEADER -->
+
+            <header class="topbar">
+
+                <div>
+                    <h1>Attendance Management</h1>
+                    <p>Manage employee attendance</p>
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar" id="userAvatar">
+                        U
+                    </div>
+
+                    <div class="profile-info">
+                        <strong id="userName">User</strong>
+                        <span id="userRole">Employee</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ============================= -->
+            <!-- ATTENDANCE STATS -->
+            <!-- ============================= -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <div>
+                        <h2 id="attendanceTotalEmployees">0</h2>
+                        <span>Total Employees</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div>
+                        <h2 id="attendancePresent">0</h2>
+                        <span>Present Today</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ❌
+                    </div>
+
+                    <div>
+                        <h2 id="attendanceAbsent">0</h2>
+                        <span>Absent Today</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <div>
+                        <h2 id="attendancePercentage">0%</h2>
+                        <span>Attendance Rate</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ============================= -->
+            <!-- ATTENDANCE CARD -->
+            <!-- ============================= -->
+
+            <section class="dashboard-card attendance-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Employee Attendance</h2>
+                        <p>View and manage attendance records</p>
+                    </div>
+
+                    <button id="addAttendanceBtn" class="primary-btn">
+                        + Mark Attendance
+                    </button>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- SEARCH + FILTER -->
+                <!-- ============================= -->
+
+                <div class="attendance-controls">
+
+                    <div class="attendance-search">
+
+                        <input
+                            type="text"
+                            id="attendanceSearch"
+                            placeholder="Search employee..."
+                        >
+
+                    </div>
+
+
+                    <div class="attendance-filter">
+
+                        <select id="attendanceStatusFilter">
+
+                            <option value="">
+                                All Status
+                            </option>
+
+                            <option value="PRESENT">
+                                Present
+                            </option>
+
+                            <option value="ABSENT">
+                                Absent
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="attendance-date">
+
+                        <input
+                            type="date"
+                            id="attendanceDateFilter"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ============================= -->
+                <!-- ATTENDANCE LIST -->
+                <!-- ============================= -->
+
+                <div id="attendanceList" class="attendance-list">
+
+                    <!-- Attendance records will load here -->
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- ADD ATTENDANCE MODAL -->
+    <!-- ============================= -->
+
+    <div id="attendanceModal" class="attendance-modal">
+
+        <div class="attendance-modal-content">
+
+            <div class="attendance-modal-header">
+
+                <div>
+                    <h2>Mark Attendance</h2>
+                    <p>Add employee attendance record</p>
+                </div>
+
+                <button
+                    id="closeAttendanceModal"
+                    class="attendance-close-btn">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="attendanceForm">
+
+                <div class="form-group">
+
+                    <label for="attendanceEmployee">
+                        Employee
+                    </label>
+
+                    <select
+                        id="attendanceEmployee"
+                        required>
+
+                        <option value="">
+                            Select Employee
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="attendanceDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="attendanceDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="attendanceStatus">
+                        Status
+                    </label>
+
+                    <select
+                        id="attendanceStatus"
+                        required>
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="PRESENT">
+                            Present
+                        </option>
+
+                        <option value="ABSENT">
+                            Absent
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <p
+                    id="attendanceMessage"
+                    class="form-message">
+                </p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelAttendanceBtn"
+                        class="secondary-btn">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+                        Save Attendance
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- EDIT ATTENDANCE MODAL -->
+    <!-- ============================= -->
+
+    <div id="editAttendanceModal" class="attendance-modal">
+
+        <div class="attendance-modal-content">
+
+            <div class="attendance-modal-header">
+
+                <div>
+                    <h2>Edit Attendance</h2>
+                    <p>Update attendance record</p>
+                </div>
+
+                <button
+                    id="closeEditAttendanceModal"
+                    class="attendance-close-btn">
+                    ×
+                </button>
+
+            </div>
+
+
+            <form id="editAttendanceForm">
+
+                <input
+                    type="hidden"
+                    id="editAttendanceId"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="editAttendanceEmployee">
+                        Employee
+                    </label>
+
+                    <select
+                        id="editAttendanceEmployee"
+                        required>
+
+                        <option value="">
+                            Select Employee
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAttendanceDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="editAttendanceDate"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="editAttendanceStatus">
+                        Status
+                    </label>
+
+                    <select
+                        id="editAttendanceStatus"
+                        required>
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="PRESENT">
+                            Present
+                        </option>
+
+                        <option value="ABSENT">
+                            Absent
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <p
+                    id="editAttendanceMessage"
+                    class="form-message">
+                </p>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        id="cancelEditAttendanceBtn"
+                        class="secondary-btn">
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn">
+                        Update Attendance
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

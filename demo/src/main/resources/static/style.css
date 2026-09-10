@@ -1,0 +1,2302 @@
+/* =========================
+   AUTH PAGE - SYNERGY DESK
+========================= */
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.auth-box h1 {
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.auth-box > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.auth-box h2 {
+    margin-bottom: 18px;
+}
+
+.auth-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-box input,
+.auth-box select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.auth-box button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.auth-box hr {
+    margin: 25px 0;
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+#loginMessage,
+#registerMessage {
+    text-align: center;
+    margin-top: 10px;
+}
+/* =========================
+   SYNERGY DESK DASHBOARD
+========================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    background: #111827;
+    color: white;
+    padding: 25px 18px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.brand h2 {
+    margin: 0;
+    font-size: 23px;
+}
+
+.brand span {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.sidebar-nav {
+    margin-top: 35px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 15px;
+    margin-bottom: 7px;
+    color: #d1d5db;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: #374151;
+    color: white;
+}
+
+.logout-btn {
+    margin-top: auto;
+    padding: 12px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #374151;
+    color: white;
+}
+
+/* Main */
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+    overflow-x: hidden;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.topbar p {
+    margin-top: 7px;
+    color: #6b7280;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile-info {
+    text-align: right;
+}
+
+.profile-info strong,
+.profile-info small {
+    display: block;
+}
+
+.profile-info small {
+    margin-top: 4px;
+    color: #6b7280;
+}
+
+.avatar,
+.member-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #e5e7eb;
+    font-weight: bold;
+}
+
+.avatar {
+    width: 45px;
+    height: 45px;
+}
+
+/* Statistics */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.stat-icon {
+    font-size: 27px;
+}
+
+.stat-card span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.stat-card h2 {
+    margin: 6px 0 0;
+}
+
+/* Dashboard cards */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.primary-btn {
+    border: 0;
+    padding: 9px 13px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+/* Tasks */
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.task:last-child {
+    border-bottom: 0;
+}
+
+.task p {
+    margin: 5px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.progress {
+    background: #fff7ed;
+}
+
+.completed {
+    background: #ecfdf5;
+}
+
+.pending {
+    background: #fef3c7;
+}
+
+/* Quick actions */
+
+.quick-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.quick-actions button {
+    padding: 18px 10px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 9px;
+    cursor: pointer;
+}
+
+.quick-actions span {
+    display: block;
+    margin-top: 8px;
+}
+
+/* Team */
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+}
+
+.member-avatar {
+    width: 40px;
+    height: 40px;
+}
+
+.team-member strong,
+.team-member small {
+    display: block;
+}
+
+.team-member small {
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.online,
+.offline {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.online {
+    background: #22c55e;
+}
+
+.offline {
+    background: #9ca3af;
+}
+
+/* Attendance */
+
+.attendance-value strong {
+    display: block;
+    font-size: 40px;
+}
+
+.attendance-value span {
+    color: #6b7280;
+}
+
+.attendance-bar {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 10px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.attendance-bar div {
+    width: 92%;
+    height: 100%;
+}
+
+.attendance-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+/* Mobile */
+
+@media (max-width: 900px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-content {
+        padding: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+}
+/* =========================
+   EDIT TASK MODAL
+========================= */
+
+.edit-task-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* Modal Box */
+
+.edit-task-box {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+
+    box-sizing: border-box;
+}
+
+
+/* Heading */
+
+.edit-task-box h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+
+    font-size: 24px;
+}
+
+
+/* Form */
+
+#editTaskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Labels */
+
+#editTaskForm label {
+    font-size: 14px;
+    font-weight: 600;
+
+    margin-top: 5px;
+}
+
+
+/* Inputs */
+
+#editTaskForm input,
+#editTaskForm textarea,
+#editTaskForm select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+
+    outline: none;
+}
+
+
+/* Textarea */
+
+#editTaskForm textarea {
+
+    min-height: 100px;
+
+    resize: vertical;
+
+    font-family: Arial, sans-serif;
+}
+
+
+/* Focus */
+
+#editTaskForm input:focus,
+#editTaskForm textarea:focus,
+#editTaskForm select:focus {
+
+    border-color: #6b7280;
+
+    box-shadow:
+        0 0 0 2px rgba(107, 114, 128, 0.12);
+
+}
+
+
+/* Buttons */
+
+.edit-task-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.edit-task-actions button {
+
+    flex: 1;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+
+/* Update Button */
+
+.edit-task-actions .primary-btn {
+
+    background: #111827;
+
+    color: white;
+}
+
+
+/* Cancel Button */
+
+.edit-task-actions button:last-child {
+
+    background: #e5e7eb;
+
+    color: #111827;
+}
+
+
+/* Hover */
+
+.edit-task-actions .primary-btn:hover {
+
+    background: #374151;
+}
+
+
+.edit-task-actions button:last-child:hover {
+
+    background: #d1d5db;
+}
+
+
+/* Message */
+
+#editTaskMessage {
+
+    text-align: center;
+
+    margin: 8px 0 0;
+
+    font-size: 14px;
+}
+
+
+/* Edit & Delete Buttons */
+
+.edit-task-btn,
+.delete-task-btn {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    padding: 6px;
+
+    border-radius: 6px;
+}
+
+
+.edit-task-btn:hover {
+
+    background: #f3f4f6;
+}
+
+
+.delete-task-btn:hover {
+
+    background: #fee2e2;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .edit-task-box {
+
+        padding: 20px;
+
+    }
+
+    .edit-task-actions {
+
+        flex-direction: column;
+
+    }
+
+}
+/* =========================
+   EMPLOYEE MANAGEMENT
+========================= */
+
+.employee-search {
+    margin-bottom: 20px;
+}
+
+.employee-search input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.employee-search input:focus {
+    border-color: #6b7280;
+    box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.12);
+}
+
+/* Employee List */
+
+.employee-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.employee-item:last-child {
+    border-bottom: none;
+}
+
+.employee-item-avatar {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.employee-info {
+    flex: 1;
+}
+
+.employee-info strong {
+    display: block;
+    font-size: 15px;
+}
+
+.employee-info small {
+    display: block;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.employee-role {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #f3f4f6;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.employee-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.employee-edit-btn,
+.employee-delete-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.employee-edit-btn:hover {
+    background: #f3f4f6;
+}
+
+.employee-delete-btn:hover {
+    background: #fee2e2;
+}
+
+/* =========================
+   ADD EMPLOYEE MODAL
+========================= */
+
+.employee-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.employee-modal-box {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 14px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+
+    box-sizing: border-box;
+}
+
+.employee-modal-box h2 {
+    margin-top: 0;
+    margin-bottom: 22px;
+}
+
+#employeeForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#employeeForm label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+#employeeForm input,
+#employeeForm select {
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    box-sizing: border-box;
+    outline: none;
+}
+
+#employeeForm input:focus,
+#employeeForm select:focus {
+    border-color: #6b7280;
+}
+
+.employee-modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.employee-modal-actions button {
+    flex: 1;
+
+    padding: 11px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.employee-modal-actions .primary-btn {
+    background: #111827;
+    color: white;
+}
+
+.employee-modal-actions button:last-child {
+    background: #e5e7eb;
+    color: #111827;
+}
+
+.employee-modal-actions .primary-btn:hover {
+    background: #374151;
+}
+
+.employee-modal-actions button:last-child:hover {
+    background: #d1d5db;
+}
+
+#employeeMessage {
+    text-align: center;
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .employee-item {
+        flex-wrap: wrap;
+    }
+
+    .employee-actions {
+        margin-left: auto;
+    }
+
+    .employee-modal-box {
+        padding: 20px;
+    }
+
+    .employee-modal-actions {
+        flex-direction: column;
+    }
+}
+/* =========================
+   TASK MANAGEMENT
+========================= */
+
+.task-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.task-search {
+    flex: 1;
+}
+
+.task-search input,
+.task-filter select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.task-search input:focus,
+.task-filter select:focus {
+    border-color: #6b7280;
+}
+
+.task-filter {
+    width: 180px;
+}
+
+
+/* =========================
+   TASK LIST
+========================= */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 16px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+.task-info {
+    flex: 1;
+}
+
+.task-info strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.task-info small {
+    display: block;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+.task-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #f3f4f6;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.task-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.task-edit-btn,
+.task-delete-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 7px;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.task-edit-btn:hover {
+    background: #f3f4f6;
+}
+
+.task-delete-btn:hover {
+    background: #fee2e2;
+}
+
+
+/* =========================
+   TASK FORM
+========================= */
+
+#taskForm,
+#editTaskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#taskForm label,
+#editTaskForm label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+#taskForm input,
+#taskForm textarea,
+#taskForm select,
+#editTaskForm input,
+#editTaskForm textarea,
+#editTaskForm select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: inherit;
+}
+
+#taskForm textarea,
+#editTaskForm textarea {
+    resize: vertical;
+}
+
+#taskForm input:focus,
+#taskForm textarea:focus,
+#taskForm select:focus,
+#editTaskForm input:focus,
+#editTaskForm textarea:focus,
+#editTaskForm select:focus {
+    border-color: #6b7280;
+}
+
+
+/* =========================
+   TASK MESSAGE
+========================= */
+
+#taskMessage,
+#editTaskMessage {
+    text-align: center;
+    margin: 8px 0 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   MOBILE TASKS
+========================= */
+
+@media (max-width: 600px) {
+
+    .task-controls {
+        flex-direction: column;
+    }
+
+    .task-filter {
+        width: 100%;
+    }
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-actions {
+        margin-left: auto;
+    }
+}
+/* ==========================================
+   ATTENDANCE MANAGEMENT
+   ========================================== */
+
+.attendance-page {
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   ATTENDANCE CARD
+   ========================================== */
+
+.attendance-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   ATTENDANCE CONTROLS
+   ========================================== */
+
+.attendance-controls {
+    display: grid;
+    grid-template-columns: 1fr 220px 200px;
+    gap: 15px;
+    margin: 20px 0 25px;
+    align-items: center;
+}
+
+.attendance-controls input,
+.attendance-controls select {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.attendance-controls input:focus,
+.attendance-controls select:focus {
+    border-color: #111827;
+    box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.08);
+}
+
+
+/* ==========================================
+   ATTENDANCE LIST
+   ========================================== */
+
+.attendance-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+
+/* ==========================================
+   ATTENDANCE ITEM
+   ========================================== */
+
+.attendance-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    min-height: 78px;
+
+    padding: 15px 18px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   EMPLOYEE INFO
+   ========================================== */
+
+.attendance-info {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+    flex: 1;
+}
+
+.attendance-avatar {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #111827;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.attendance-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.attendance-details strong {
+    color: #111827;
+    font-size: 15px;
+    font-weight: 600;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.attendance-details span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   DATE
+   ========================================== */
+
+.attendance-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 125px;
+
+    color: #4b5563;
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   STATUS
+   ========================================== */
+
+.attendance-status {
+    min-width: 90px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.attendance-status.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.attendance-status.absent {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* ==========================================
+   ACTION BUTTONS
+   ========================================== */
+
+.attendance-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.attendance-edit-btn,
+.attendance-delete-btn {
+    height: 34px;
+
+    padding: 0 11px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.attendance-edit-btn {
+    background: #f3f4f6;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.attendance-edit-btn:hover {
+    background: #e5e7eb;
+}
+
+.attendance-delete-btn {
+    background: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+}
+
+.attendance-delete-btn:hover {
+    background: #ffe4e6;
+}
+
+
+/* ==========================================
+   ATTENDANCE MODAL
+   ========================================== */
+
+.attendance-modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(17, 24, 39, 0.55);
+
+    box-sizing: border-box;
+}
+
+.attendance-modal.show {
+    display: flex;
+}
+
+
+/* ==========================================
+   MODAL CONTENT
+   ========================================== */
+
+.attendance-modal-content {
+    width: 100%;
+    max-width: 500px;
+
+    background: #ffffff;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   MODAL HEADER
+   ========================================== */
+
+.attendance-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.attendance-modal-header h2 {
+    margin: 0 0 5px;
+
+    color: #111827;
+
+    font-size: 20px;
+}
+
+.attendance-modal-header p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   CLOSE BUTTON
+   ========================================== */
+
+.attendance-close-btn {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #f3f4f6;
+    color: #374151;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.attendance-close-btn:hover {
+    background: #e5e7eb;
+}
+
+
+/* ==========================================
+   FORM
+   ========================================== */
+
+.attendance-modal .form-group {
+    margin-bottom: 18px;
+}
+
+.attendance-modal .form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.attendance-modal .form-group input,
+.attendance-modal .form-group select {
+    width: 100%;
+    height: 44px;
+
+    padding: 0 13px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.attendance-modal .form-group input:focus,
+.attendance-modal .form-group select:focus {
+    border-color: #111827;
+
+    box-shadow: 0 0 0 2px rgba(17, 24, 39, 0.08);
+}
+
+
+/* ==========================================
+   MODAL ACTIONS
+   ========================================== */
+
+.attendance-modal .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+.attendance-modal .primary-btn {
+    background: #111827;
+    color: #ffffff;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.attendance-modal .primary-btn:hover {
+    background: #1f2937;
+}
+
+.attendance-modal .secondary-btn {
+    background: #ffffff;
+    color: #374151;
+
+    border: 1px solid #d1d5db;
+
+    padding: 10px 18px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.attendance-modal .secondary-btn:hover {
+    background: #f3f4f6;
+}
+
+
+/* ==========================================
+   MESSAGE
+   ========================================== */
+
+.attendance-modal .form-message {
+    margin: 8px 0 0;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   ATTENDANCE PAGE HEADER
+   ========================================== */
+
+.attendance-page .topbar {
+    margin-bottom: 30px;
+}
+
+
+/* ==========================================
+   ATTENDANCE PAGE PRIMARY BUTTON
+   ========================================== */
+
+.attendance-page .attendance-card > .card-header .primary-btn {
+    background: #111827;
+    color: #ffffff;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.attendance-page .attendance-card > .card-header .primary-btn:hover {
+    background: #1f2937;
+}
+
+
+/* ==========================================
+   EMPTY ATTENDANCE STATE
+   ========================================== */
+
+.attendance-empty {
+    padding: 45px 20px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 14px;
+
+    border: 1px dashed #d1d5db;
+    border-radius: 10px;
+
+    background: #fafafa;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .attendance-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .attendance-search {
+        grid-column: 1 / -1;
+    }
+
+    .attendance-item {
+        flex-wrap: wrap;
+    }
+
+    .attendance-date {
+        justify-content: flex-start;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .attendance-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-search {
+        grid-column: auto;
+    }
+
+    .attendance-item {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+    }
+
+    .attendance-info {
+        width: 100%;
+    }
+
+    .attendance-date {
+        width: 100%;
+    }
+
+    .attendance-status {
+        min-width: 80px;
+    }
+
+    .attendance-actions {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-modal-content {
+        padding: 20px;
+    }
+
+    .attendance-modal .modal-actions {
+        flex-direction: column-reverse;
+        width: 100%;
+    }
+
+    .attendance-modal .modal-actions button {
+        width: 100%;
+    }
+
+}
+/* ==================================================
+   REPORTS PAGE
+   ================================================== */
+
+.reports-card {
+    margin-top: 24px;
+}
+
+.report-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.report-summary-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.report-summary-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: #f3f4f6;
+}
+
+.report-summary-box h3 {
+    margin: 0 0 5px;
+    font-size: 24px;
+}
+
+.report-summary-box span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   REPORT CONTROLS
+   ================================================== */
+
+.report-controls {
+    display: grid;
+    grid-template-columns: 1fr 200px 180px;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.report-controls input,
+.report-controls select {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+.report-controls input:focus,
+.report-controls select:focus {
+    border-color: #2563eb;
+}
+
+
+/* ==================================================
+   EMPLOYEE REPORT LIST
+   ================================================== */
+
+.employee-report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.employee-report-item {
+    display: grid;
+    grid-template-columns: 1fr 150px 150px 150px;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 18px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    background: #ffffff;
+}
+
+.employee-report-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.employee-report-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e7eb;
+    font-weight: 600;
+}
+
+.employee-report-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.employee-report-details strong {
+    font-size: 15px;
+}
+
+.employee-report-details span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.employee-report-date {
+    color: #4b5563;
+    font-size: 14px;
+}
+
+.employee-report-status {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    min-width: 80px;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.employee-report-status.present {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.employee-report-status.absent {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+
+/* ==================================================
+   TASK REPORT
+   ================================================== */
+
+.task-report-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.task-report-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #ffffff;
+}
+
+.task-report-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #f3f4f6;
+    font-size: 22px;
+}
+
+.task-report-box h3 {
+    margin: 0 0 5px;
+    font-size: 23px;
+}
+
+.task-report-box span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   EMPTY REPORT
+   ================================================== */
+
+.report-empty {
+    padding: 35px;
+    text-align: center;
+    color: #6b7280;
+    border: 1px dashed #d1d5db;
+    border-radius: 12px;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+   ================================================== */
+
+@media (max-width: 1000px) {
+
+    .report-summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .task-report-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .report-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .employee-report-item {
+        grid-template-columns: 1fr 120px 120px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .report-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-report-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .report-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-report-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+```css
+/* ==========================================
+   SETTINGS PAGE
+========================================== */
+
+/* Profile section */
+
+.settings-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.large-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.profile-details h3 {
+    margin: 0 0 6px;
+    font-size: 20px;
+}
+
+.profile-details p {
+    margin: 0 0 10px;
+    color: #777;
+    font-size: 14px;
+}
+
+.role-badge {
+    display: inline-block;
+
+    padding: 5px 12px;
+    border-radius: 20px;
+
+    background: #eef2ff;
+    color: #4f46e5;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ==========================================
+   SETTINGS FORM
+========================================== */
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.settings-form input,
+.settings-form select {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    border: 1px solid #d9dce3;
+    border-radius: 8px;
+
+    background: #ffffff;
+    color: #333;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.settings-form input:focus,
+.settings-form select:focus {
+    border-color: #667eea;
+
+    box-shadow:
+        0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+.form-group input[readonly] {
+    background: #f7f8fa;
+    cursor: not-allowed;
+}
+
+
+/* ==========================================
+   PASSWORD MESSAGE
+========================================== */
+
+.settings-message {
+    min-height: 20px;
+
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.settings-message.success {
+    color: #16803c;
+}
+
+.settings-message.error {
+    color: #d93025;
+}
+
+
+/* ==========================================
+   SYSTEM INFORMATION
+========================================== */
+
+.system-info {
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.system-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.system-row:last-child {
+    border-bottom: none;
+}
+
+.system-row span {
+    color: #777;
+    font-size: 14px;
+}
+
+.system-row strong {
+    color: #333;
+    font-size: 14px;
+    text-align: right;
+}
+
+
+/* ==========================================
+   SESSION
+========================================== */
+
+.session-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.session-section p {
+    margin: 0;
+
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.session-section strong {
+    color: #333;
+}
+
+
+/* ==========================================
+   SETTINGS LOGOUT BUTTON
+========================================== */
+
+.logout-settings-btn {
+    width: fit-content;
+
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #ef4444;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.logout-settings-btn:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+}
+
+.logout-settings-btn:active {
+    transform: translateY(0);
+}
+
+
+/* ==========================================
+   SETTINGS CARD BUTTON
+========================================== */
+
+.settings-form .primary-btn {
+    width: fit-content;
+
+    padding: 11px 18px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   SETTINGS RESPONSIVE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .settings-profile {
+        gap: 14px;
+    }
+
+    .large-avatar {
+        width: 60px;
+        height: 60px;
+
+        font-size: 20px;
+    }
+
+    .profile-details h3 {
+        font-size: 18px;
+    }
+
+    .system-row {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 5px;
+    }
+
+    .system-row strong {
+        text-align: left;
+    }
+
+    .logout-settings-btn {
+        width: 100%;
+    }
+
+    .settings-form .primary-btn {
+        width: 100%;
+    }
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .settings-profile {
+        align-items: flex-start;
+    }
+
+    .large-avatar {
+        width: 52px;
+        height: 52px;
+
+        font-size: 18px;
+    }
+
+    .profile-details h3 {
+        font-size: 16px;
+    }
+
+    .profile-details p {
+        font-size: 12px;
+
+        word-break: break-word;
+    }
+
+    .form-group input {
+        font-size: 13px;
+    }
+}

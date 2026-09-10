@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Synergy Desk - Employees</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h2>Synergy Desk</h2>
+            <span>Employee Management</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="employees.html" class="nav-item active">
+                <span>👥</span>
+                Employees
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span>📋</span>
+                Tasks
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>📅</span>
+                Attendance
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div>
+                <h1>Employees</h1>
+                <p>Manage your team members</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-info">
+                    <strong id="userName">Employee</strong>
+                    <small id="userRole">EMPLOYEE</small>
+                </div>
+
+                <div class="avatar" id="userAvatar">
+                    U
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- EMPLOYEE SECTION -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>All Employees</h2>
+                    <p>Current employees in Synergy Desk</p>
+                </div>
+
+                <button
+                    class="primary-btn"
+                    id="addEmployeeBtn"
+                    type="button">
+
+                    + Add Employee
+
+                </button>
+
+            </div>
+
+
+            <!-- SEARCH -->
+            <div class="employee-search">
+
+                <input
+                    type="text"
+                    id="employeeSearch"
+                    placeholder="🔍 Search employee by name or email..."
+                >
+
+            </div>
+
+
+            <!-- EMPLOYEE LIST -->
+            <div
+                class="employee-list"
+                id="employeeList">
+
+                <p>Loading employees...</p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- ADD EMPLOYEE MODAL -->
+
+<div
+    id="employeeModal"
+    class="employee-modal"
+    style="display: none;">
+
+    <div class="employee-modal-box">
+
+        <h2>Add Employee</h2>
+
+        <form id="employeeForm">
+
+            <label for="employeeName">
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="employeeName"
+                placeholder="Employee Name"
+                required
+            >
+
+
+            <label for="employeeEmail">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="employeeEmail"
+                placeholder="Employee Email"
+                required
+            >
+
+
+            <label for="employeePassword">
+                Password
+            </label>
+
+            <input
+                type="password"
+                id="employeePassword"
+                placeholder="Password"
+                required
+            >
+
+
+            <label for="employeeRole">
+                Role
+            </label>
+
+            <select
+                id="employeeRole"
+                required>
+
+                <option value="EMPLOYEE">
+                    Employee
+                </option>
+
+                <option value="ADMIN">
+                    Admin
+                </option>
+
+            </select>
+
+
+            <div class="employee-modal-actions">
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    💾 Save Employee
+
+                </button>
+
+                <button
+                    type="button"
+                    id="closeEmployeeModal">
+
+                    ❌ Cancel
+
+                </button>
+
+            </div>
+
+
+            <p id="employeeMessage"></p>
+
+        </form>
+
+    </div>
+
+</div>
+<!-- EDIT EMPLOYEE MODAL -->
+
+<div
+    id="editEmployeeModal"
+    class="employee-modal"
+    style="display: none;">
+
+    <div class="employee-modal-box">
+
+        <h2>Edit Employee</h2>
+
+        <form id="editEmployeeForm">
+
+            <input
+                type="hidden"
+                id="editEmployeeId"
+            >
+
+            <label for="editEmployeeName">
+                Name
+            </label>
+
+            <input
+                type="text"
+                id="editEmployeeName"
+                placeholder="Employee Name"
+                required
+            >
+
+            <label for="editEmployeeEmail">
+                Email
+            </label>
+
+            <input
+                type="email"
+                id="editEmployeeEmail"
+                placeholder="Employee Email"
+                required
+            >
+
+            <label for="editEmployeeRole">
+                Role
+            </label>
+
+            <select
+                id="editEmployeeRole"
+                required>
+
+                <option value="EMPLOYEE">
+                    Employee
+                </option>
+
+                <option value="ADMIN">
+                    Admin
+                </option>
+
+            </select>
+
+            <div class="employee-modal-actions">
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    💾 Update Employee
+
+                </button>
+
+                <button
+                    type="button"
+                    id="closeEditEmployeeModal">
+
+                    ❌ Cancel
+
+                </button>
+
+            </div>
+
+            <p id="editEmployeeMessage"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

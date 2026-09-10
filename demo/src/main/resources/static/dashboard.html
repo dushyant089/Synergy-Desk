@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Synergy Desk - Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <h2>Synergy Desk</h2>
+            <span>Employee Management</span>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>📊</span>
+                Dashboard
+            </a>
+
+            <a href="employees.html" class="nav-item">
+                <span>👥</span>
+                Employees
+            </a>
+
+            <a href="tasks.html" class="nav-item">
+                <span>📋</span>
+                Tasks
+            </a>
+
+            <a href="attendance.html" class="nav-item">
+                <span>📅</span>
+                Attendance
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📈</span>
+                Reports
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span>⚙️</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <button class="logout-btn" id="logoutBtn">
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome back to Synergy Desk</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-info">
+                    <strong id="userName">Employee</strong>
+                    <small id="userRole">EMPLOYEE</small>
+                </div>
+
+                <div class="avatar" id="userAvatar">
+                    U
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================== -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+                <div>
+                    <span>Total Employees</span>
+                    <h2 id="totalEmployees">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📋
+                </div>
+
+                <div>
+                    <span>Active Tasks</span>
+                    <h2 id="activeTasks">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ✅
+                </div>
+
+                <div>
+                    <span>Completed</span>
+                    <h2 id="completedTasks">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+                    <span>Attendance</span>
+                    <h2>92%</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DASHBOARD GRID
+        ========================== -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- =========================
+                 RECENT TASKS
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Recent Tasks</h2>
+                        <p>Latest assigned tasks</p>
+                    </div>
+
+                    <button
+                        class="primary-btn"
+                        type="button">
+                        + Add Task
+                    </button>
+
+                </div>
+
+
+                <!-- ADD TASK FORM -->
+
+                <div
+                    id="taskFormContainer"
+                    style="display: none;">
+
+                    <h3>Add New Task</h3>
+
+                    <form id="taskForm">
+
+                        <input
+                            type="text"
+                            id="taskTitle"
+                            placeholder="Task Title"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            id="taskDescription"
+                            placeholder="Task Description"
+                            required
+                        >
+
+                        <select
+                            id="taskStatus"
+                            required>
+
+                            <option value="PENDING">
+                                Pending
+                            </option>
+
+                            <option value="IN_PROGRESS">
+                                In Progress
+                            </option>
+
+                            <option value="COMPLETED">
+                                Completed
+                            </option>
+
+                        </select>
+
+                        <button type="submit">
+                            Save Task
+                        </button>
+
+                        <button
+                            type="button"
+                            id="cancelTaskBtn">
+                            Cancel
+                        </button>
+
+                        <p id="taskMessage"></p>
+
+                    </form>
+
+                </div>
+
+
+                <!-- TASK LIST -->
+
+                <div
+                    class="task-list"
+                    id="taskList">
+
+                    <p>Loading tasks...</p>
+
+                </div>
+
+            </div>
+
+<!-- =========================
+     QUICK ACTIONS
+========================== -->
+
+<div class="dashboard-card">
+
+    <div class="card-header">
+
+        <div>
+            <h2>Quick Actions</h2>
+            <p>Manage your workspace</p>
+        </div>
+
+    </div>
+
+    <div class="quick-actions">
+
+        <button type="button" onclick="window.location.href='employees.html'">
+            👤
+            <span>Add Employee</span>
+        </button>
+
+        <button type="button" onclick="window.location.href='tasks.html'">
+            📋
+            <span>Create Task</span>
+        </button>
+
+        <button type="button" onclick="window.location.href='attendance.html'">
+            📅
+            <span>Mark Attendance</span>
+        </button>
+
+        <button type="button" onclick="window.location.href='reports.html'">
+            📊
+            <span>View Reports</span>
+        </button>
+
+    </div>
+
+</div>
+     
+            <!-- =========================
+                    TEAM MEMBERS
+            ========================== -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Team Members</h2>
+                        <p>Current team</p>
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="team-list"
+                    id="teamList">
+
+                    <p>Loading employees...</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ATTENDANCE
+            ========================== -->
+
+            <div class="dashboard-card attendance-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Today's Attendance</h2>
+                        <p>Employee attendance overview</p>
+                    </div>
+
+                </div>
+
+
+                <div class="attendance-value">
+
+                    <strong>92%</strong>
+
+                    <span>
+                        Present today
+                    </span>
+
+                </div>
+
+
+                <div class="attendance-bar">
+                    <div></div>
+                </div>
+
+
+                <div class="attendance-info">
+
+                    <span>
+                        Present: 22
+                    </span>
+
+                    <span>
+                        Absent: 2
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     EDIT TASK MODAL
+========================== -->
+
+<div
+    id="editTaskModal"
+    class="edit-task-modal"
+    style="display: none;">
+
+    <div class="edit-task-box">
+
+        <h2>Edit Task</h2>
+
+        <form id="editTaskForm">
+
+            <input
+                type="hidden"
+                id="editTaskId"
+            >
+
+
+            <label for="editTaskTitle">
+                Task Title
+            </label>
+
+            <input
+                type="text"
+                id="editTaskTitle"
+                placeholder="Task Title"
+                required
+            >
+
+
+            <label for="editTaskDescription">
+                Description
+            </label>
+
+            <textarea
+                id="editTaskDescription"
+                placeholder="Task Description"
+                required
+            ></textarea>
+
+
+            <label for="editTaskStatus">
+                Status
+            </label>
+
+            <select
+                id="editTaskStatus"
+                required>
+
+                <option value="PENDING">
+                    Pending
+                </option>
+
+                <option value="IN_PROGRESS">
+                    In Progress
+                </option>
+
+                <option value="COMPLETED">
+                    Completed
+                </option>
+
+            </select>
+
+
+            <div class="edit-task-actions">
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+                    💾 Update Task
+                </button>
+
+                <button
+                    type="button"
+                    id="closeEditTask">
+                    ❌ Cancel
+                </button>
+
+            </div>
+
+
+            <p id="editTaskMessage"></p>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>

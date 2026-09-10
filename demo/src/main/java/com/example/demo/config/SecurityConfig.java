@@ -4,7 +4,6 @@ import com.example.demo.security.JwtAuthenticationFilter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -17,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
 
@@ -52,19 +50,43 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                // CORS preflight
+                .requestMatchers(
+                    HttpMethod.OPTIONS,
+                    "/**"
+                ).permitAll()
 
-                .requestMatchers("/api/auth/**").permitAll()
+                // Frontend pages and static files
+                .requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/*.html",
+                    "/*.js",
+                    "/*.css"
+                ).permitAll()
 
-                .requestMatchers("/api/users/**").hasRole("ADMIN")
-                .requestMatchers("/api/reports/**").hasRole("ADMIN")
+                // Login / Register
+                .requestMatchers(
+                    "/api/auth/**"
+                ).permitAll()
 
+                // Admin APIs
+                .requestMatchers(
+                    "/api/users/**"
+                ).hasRole("ADMIN")
+
+                .requestMatchers(
+                    "/api/reports/**"
+                ).hasRole("ADMIN")
+
+                // Logged-in user APIs
                 .requestMatchers(
                     "/api/tasks/**",
                     "/api/attendance/**",
                     "/api/dashboard/**"
                 ).authenticated()
 
+                // Everything else requires authentication
                 .anyRequest().authenticated()
             )
 
@@ -82,12 +104,16 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
+        // Allowed frontend origins
         configuration.setAllowedOrigins(List.of(
             "https://synergy-desk.netlify.app",
             "http://localhost:5500",
-            "http://127.0.0.1:5500"
+            "http://127.0.0.1:5500",
+            "http://localhost:8080",
+            "http://127.0.0.1:8080"
         ));
 
+        // Allowed HTTP methods
         configuration.setAllowedMethods(List.of(
             "GET",
             "POST",
@@ -97,6 +123,7 @@ public class SecurityConfig {
             "OPTIONS"
         ));
 
+        // Allowed request headers
         configuration.setAllowedHeaders(List.of(
             "Authorization",
             "Content-Type",
@@ -104,10 +131,12 @@ public class SecurityConfig {
             "Origin"
         ));
 
+        // Headers browser can read
         configuration.setExposedHeaders(List.of(
             "Authorization"
         ));
 
+        // No cookies are being used
         configuration.setAllowCredentials(false);
 
         UrlBasedCorsConfigurationSource source =
@@ -119,14 +148,6 @@ public class SecurityConfig {
         );
 
         return source;
-    }
-
-    @Bean
-    @org.springframework.core.annotation.Order(Ordered.HIGHEST_PRECEDENCE)
-    public CorsFilter corsFilter(
-            CorsConfigurationSource corsConfigurationSource) {
-
-        return new CorsFilter(corsConfigurationSource);
     }
 
     @Bean
