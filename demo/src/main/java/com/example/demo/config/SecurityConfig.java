@@ -4,6 +4,7 @@ import com.example.demo.security.JwtAuthenticationFilter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -11,6 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
@@ -20,7 +26,6 @@ public class SecurityConfig {
 
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter) {
-
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
@@ -29,13 +34,10 @@ public class SecurityConfig {
             HttpSecurity http) throws Exception {
 
         http
-            // CSRF disable
             .csrf(csrf -> csrf.disable())
 
-            // CORS enable
-            .cors(cors -> {})
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
-            // JWT ke liye session stateless
             .sessionManagement(session ->
                 session.sessionCreationPolicy(
                     SessionCreationPolicy.STATELESS
@@ -44,45 +46,71 @@ public class SecurityConfig {
 
             .authorizeHttpRequests(auth -> auth
 
-                // =====================================
-                // AUTH APIs - PUBLIC
-                // =====================================
-                .requestMatchers("/api/auth/**")
-                .permitAll()
+                // CORS preflight
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 
-                // =====================================
-                // ADMIN APIs
-                // =====================================
-                .requestMatchers("/api/users/**")
-                .hasRole("ADMIN")
+                // Login / Register
+                .requestMatchers("/api/auth/**").permitAll()
 
-                .requestMatchers("/api/reports/**")
-                .hasRole("ADMIN")
+                // Admin APIs
+                .requestMatchers("/api/users/**").hasRole("ADMIN")
+                .requestMatchers("/api/reports/**").hasRole("ADMIN")
 
-                // =====================================
-                // LOGIN REQUIRED
-                // =====================================
+                // Logged-in users
                 .requestMatchers(
                     "/api/tasks/**",
                     "/api/attendance/**",
                     "/api/dashboard/**"
-                )
-                .authenticated()
+                ).authenticated()
 
-                // =====================================
-                // EVERYTHING ELSE
-                // =====================================
-                .anyRequest()
-                .authenticated()
+                .anyRequest().authenticated()
             )
 
-            // JWT filter
             .addFilterBefore(
                 jwtAuthenticationFilter,
                 UsernamePasswordAuthenticationFilter.class
             );
 
         return http.build();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+
+        CorsConfiguration configuration =
+                new CorsConfiguration();
+
+        configuration.setAllowedOrigins(List.of(
+            "https://synergy-desk.netlify.app",
+            "http://localhost:5500",
+            "http://127.0.0.1:5500"
+        ));
+
+        configuration.setAllowedMethods(List.of(
+            "GET",
+            "POST",
+            "PUT",
+            "DELETE",
+            "OPTIONS"
+        ));
+
+        configuration.setAllowedHeaders(List.of(
+            "Authorization",
+            "Content-Type",
+            "Accept"
+        ));
+
+        configuration.setAllowCredentials(false);
+
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration(
+            "/**",
+            configuration
+        );
+
+        return source;
     }
 
     @Bean
