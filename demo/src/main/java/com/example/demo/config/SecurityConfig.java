@@ -1,7 +1,5 @@
 package com.example.demo.config;
-
 import com.example.demo.security.JwtAuthenticationFilter;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -106,6 +104,7 @@ public class SecurityConfig {
 
         // Allowed frontend origins
         configuration.setAllowedOrigins(List.of(
+            "https://synergy-desk-production.up.railway.app",
             "https://synergy-desk.netlify.app",
             "http://localhost:5500",
             "http://127.0.0.1:5500",
