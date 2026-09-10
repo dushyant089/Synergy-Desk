@@ -4,6 +4,7 @@ import com.example.demo.security.JwtAuthenticationFilter;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -81,7 +82,7 @@ public class SecurityConfig {
         CorsConfiguration configuration =
                 new CorsConfiguration();
 
-        configuration.setAllowedOriginPatterns(List.of(
+        configuration.setAllowedOrigins(List.of(
             "https://synergy-desk.netlify.app",
             "http://localhost:5500",
             "http://127.0.0.1:5500"
@@ -96,7 +97,12 @@ public class SecurityConfig {
             "OPTIONS"
         ));
 
-        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowedHeaders(List.of(
+            "Authorization",
+            "Content-Type",
+            "Accept",
+            "Origin"
+        ));
 
         configuration.setExposedHeaders(List.of(
             "Authorization"
@@ -116,6 +122,7 @@ public class SecurityConfig {
     }
 
     @Bean
+    @org.springframework.core.annotation.Order(Ordered.HIGHEST_PRECEDENCE)
     public CorsFilter corsFilter(
             CorsConfigurationSource corsConfigurationSource) {
 
