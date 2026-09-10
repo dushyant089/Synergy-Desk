@@ -12,9 +12,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import java.util.List;
 
@@ -26,6 +28,7 @@ public class SecurityConfig {
 
     public SecurityConfig(
             JwtAuthenticationFilter jwtAuthenticationFilter) {
+
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
     }
 
@@ -97,7 +100,12 @@ public class SecurityConfig {
         configuration.setAllowedHeaders(List.of(
             "Authorization",
             "Content-Type",
-            "Accept"
+            "Accept",
+            "Origin"
+        ));
+
+        configuration.setExposedHeaders(List.of(
+            "Authorization"
         ));
 
         configuration.setAllowCredentials(false);
@@ -106,15 +114,24 @@ public class SecurityConfig {
                 new UrlBasedCorsConfigurationSource();
 
         source.registerCorsConfiguration(
-            "/**",
-            configuration
+                "/**",
+                configuration
         );
 
         return source;
     }
 
+    // Global CORS filter
+    @Bean
+    public CorsFilter corsFilter(
+            CorsConfigurationSource corsConfigurationSource) {
+
+        return new CorsFilter(corsConfigurationSource);
+    }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
+
         return new BCryptPasswordEncoder();
     }
 }
