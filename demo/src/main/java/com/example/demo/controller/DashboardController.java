@@ -3,7 +3,6 @@ package com.example.demo.controller;
 import com.example.demo.entity.Task;
 import com.example.demo.repository.TaskRepository;
 import com.example.demo.repository.UserRepository;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin
+
 public class DashboardController {
 
     private final UserRepository userRepository;
